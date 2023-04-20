@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71c21251-4d8a-4ce8-bcd1-15d158a65fad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DAOS Eksamen 2. Semester.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Start.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Destillering.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Fad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Lager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/LagerPlads.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Tap.java" afterDir="false" />
+    <list default="true" id="71c21251-4d8a-4ce8-bcd1-15d158a65fad" name="Changes" comment="Everything added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Start.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +39,8 @@
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App" />
       <module name="DAOS Eksamen 2. Semester" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -66,4 +53,8 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Everything added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Everything added" />
+  </component>
 </project>

@@ -49,7 +49,7 @@ public class Start extends Application {
         pane.setVgap(10);
 
         //Destillering
-        Label lblDestillering = new Label("Lav destillering:");
+        Label lblDestillering = new Label("A) Lav destillering:");
         lblDestillering.setStyle("-fx-font-size: 20;");
         pane.add(lblDestillering, 0, 0, 2, 1);
         GridPane.setHalignment(lblDestillering, HPos.CENTER);
@@ -97,7 +97,7 @@ public class Start extends Application {
 
 
         //Medarbejder label
-        Label lblMedarbejder = new Label("Find medarbejder:");
+        Label lblMedarbejder = new Label("B) Find medarbejder:");
         lblMedarbejder.setStyle("-fx-font-size: 20;");
         pane.add(lblMedarbejder, 2, 0);
         GridPane.setHalignment(lblMedarbejder, HPos.CENTER);
@@ -112,7 +112,7 @@ public class Start extends Application {
         btnMedarbejder.setOnAction(actionEvent -> this.btnMedarbejderAction());
 
         //Fad label
-        Label lblFad = new Label("Fad på plads:");
+        Label lblFad = new Label("C) Fad på plads:");
         lblFad.setStyle("-fx-font-size: 20;");
         pane.add(lblFad, 3, 0);
         GridPane.setHalignment(lblFad, HPos.CENTER);
@@ -140,7 +140,7 @@ public class Start extends Application {
         cbReol.setButtonCell(new ListCell<>() {
             @Override
             protected void updateItem(String item, boolean empty) {
-                super.updateItem(item, empty) ;
+                super.updateItem(item, empty);
                 if (empty || item == null) {
                     setText("Reol");
                 } else {
@@ -157,7 +157,7 @@ public class Start extends Application {
         cbHylde.setButtonCell(new ListCell<>() {
             @Override
             protected void updateItem(String item, boolean empty) {
-                super.updateItem(item, empty) ;
+                super.updateItem(item, empty);
                 if (empty || item == null) {
                     setText("Hylde");
                 } else {
@@ -173,7 +173,7 @@ public class Start extends Application {
         cbPlads.setButtonCell(new ListCell<>() {
             @Override
             protected void updateItem(String item, boolean empty) {
-                super.updateItem(item, empty) ;
+                super.updateItem(item, empty);
                 if (empty || item == null) {
                     setText("Plads");
                 } else {
@@ -236,12 +236,16 @@ public class Start extends Application {
         } else {
             try {
                 String query = String.format("'%s', '%s', '%s', '%s', %s, %s, '%s', '%s'", dpDato.getValue(), txfMaltBatch.getText(), txfKornsort.getText(), txfMedarbejder.getText(), kapacitet, alkoholsProcent, txfRygemateriale.getText(), txaKommentar.getText());
-                System.out.println(query);
                 Statement stmt = database.createStatement();
                 int rows = stmt.executeUpdate("INSERT INTO Destillering (dato, maltBatch, kornsort, medarbejder, kapacitet, alkoholsprocent, rygemateriale, kommentar) VALUES (" + query + ")");
                 Utility.message("Success", "Destilleringen has been added", rows + " rows was added");
             } catch (SQLException e) {
-                Utility.message("Error", "Error code: " + e.getErrorCode() + "", e.getMessage());
+                switch (e.getErrorCode()) {
+                    case 241 -> Utility.message("Error", "Error code: " + e.getErrorCode(), "Error pick a valid date!");
+                    case 547 ->
+                            Utility.message("Error", "Error code: " + e.getErrorCode(), "Error in alkohols procent must be between 0 and 100!");
+                    default -> Utility.message("Error", "Error code: " + e.getErrorCode(), e.getMessage());
+                }
             }
         }
     }
@@ -364,10 +368,10 @@ public class Start extends Application {
                     }
 
                     Fad fad = lvwFade.getSelectionModel().getSelectedItem();
-                    String updateQuery = String.format("UPDATE Fad SET lagerPladsId = %s WHERE Fad.fadNummer = %s", lagerPladsId ,fad.getFadID());
+                    String updateQuery = String.format("UPDATE Fad SET lagerPladsId = %s WHERE Fad.fadNummer = %s", lagerPladsId, fad.getFadID());
                     stmt.executeUpdate(updateQuery);
 
-                    Utility.message("Success", "Fadet has been added to lagerPladsId: " +  lagerPladsId, "Fadet was updated");
+                    Utility.message("Success", "Fadet has been added to lagerPladsId: " + lagerPladsId, "Fadet was updated");
                 } catch (SQLException e) {
                     Utility.message("Error", "Error code: " + e.getErrorCode() + "", e.getMessage());
                 }
